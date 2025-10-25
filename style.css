@@ -1,0 +1,40 @@
+body {
+    background: #000 url('./bg.jpg') no-repeat center center;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    padding: 10px;
+    color: white;
+}
+
+.jsPanel-content {
+    padding: 10px;
+}
+
+.desktop-program {
+    position: absolute;
+    left: 96%;
+    transform: translate(-50%, -50%);
+    font-size: small;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.program-button {
+    all: unset;
+    display: inline-block;
+}
+
+.window-theme {
+    background-color: #304322;
+    color: white;
+}
+
+.jsPanel-ftr.active {
+    margin: 10px;
+    padding: 0;
+}
+
+a { color: white; }
