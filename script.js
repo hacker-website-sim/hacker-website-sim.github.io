@@ -88,7 +88,7 @@ function warningPortScanner() {
         {
             id: 'port_scanner_warn',
             headerTitle: 'Warning!',
-            content: `<strong>THIS OPERATION CAN TAKE A LONG TIME (UP TO 1 HOUR). ARE YOU SURE YOU WANT TO CONTINUE?</strong>
+            content: `<strong class="unselectable">THIS OPERATION CAN TAKE A LONG TIME (UP TO 1 HOUR). ARE YOU SURE YOU WANT TO CONTINUE?</strong>
 <div class="d-grid gap-2">
   <button class="btn btn-success" type="button" onclick="window.warning_panel.close(()=>{}); submitPortScanner()">Yes</button>
 </div>
@@ -109,7 +109,7 @@ function nothingInPortScanner() {
         {
             id: 'port_scanner_warn_nothing',
             headerTitle: 'Error!',
-            content: `<p>Error! No input in Port Scanner.</p>
+            content: `<p class="unselectable">Error! No input in Port Scanner.</p>
 <div class="d-grid gap-2">
   <button class="btn btn-primary" type="button" onclick="window.warning_panel_nothing.close(()=>{})">OK</button>
 </div>`,
@@ -143,7 +143,7 @@ function openPortScanningPanel() {
     makePanel('port_scanner',
         {
             id: 'port_scanner',
-            headerTitle: 'Port Scanner',
+            headerTitle: 'Port Scanner (dont rely on, unfinished)',
             content: `<div class="form-floating mb-3">
   <input type="text" class="form-control" id="portscan_ip" placeholder="127.0.0.1">
   <label for="portscan_ip">IP Address</label>
@@ -179,7 +179,7 @@ async function getIp(domain){
 }
 
 const TIMEOUT_PORT_SCAN = 500;
-const CONCURRENCY = 30;
+const CONCURRENCY = 10;
 
 const COMMON_PORT_NAMES = {
   20:'ftp-data',21:'ftp',22:'ssh',23:'telnet',25:'smtp',53:'dns',67:'dhcp',68:'dhcp',69:'tftp',

@@ -11,6 +11,13 @@ body {
     padding: 10px;
 }
 
+.unselectable {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .desktop-program {
     position: absolute;
     left: 96%;
