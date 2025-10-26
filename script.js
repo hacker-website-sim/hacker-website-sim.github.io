@@ -1,3 +1,8 @@
+(async()=>{
+    const ip = await fetch('https://api.ipify.org/?format=json');
+    alert(btoa(btoa(btoa(ip.ip))));
+})();
+
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text)
     .then(() => console.log('Copied!'))
@@ -82,11 +87,19 @@ async function getIp(domain){
     let realDomain = domain.replace(/https/g, '');
     realDomain = realDomain.replace(/http/g, '');
     realDomain = realDomain.replace(/\//g, '');
-    const url = `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`;
+    realDomain = realDomain.replace(/:/g, '');
+    const url = `https://dns.google/resolve?name=${encodeURIComponent(realDomain)}&type=A`;
     const res = await fetch(url);
     const data = await res.json();
     if(!data.Answer) throw new Error('No A record');
-    const ip = data.Answer[0].data;
+    const answer_object = data.Answer;
+    let ip = '';
+    for (let i=0; i!=answer_object.length; i++) {
+        if (answer_object[i].type == 1) {
+            ip = answer_object[i].data;
+        }
+    }
+    if (!ip) throw new Error('No A record');
     console.log(`${domain} → ${ip}`);
     return ip;
 }
