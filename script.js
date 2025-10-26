@@ -79,6 +79,9 @@ function submitIpFinder() {
 }
 
 async function getIp(domain){
+    let realDomain = domain.replace(/https/g, '');
+    realDomain = realDomain.replace(/http/g, '');
+    realDomain = realDomain.replace(/\//g, '');
     const url = `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`;
     const res = await fetch(url);
     const data = await res.json();
