@@ -11,8 +11,10 @@ body {
 
 #selectionBox {
     position: absolute;
-    border: 2px dashed #00f;
-    background: rgba(0, 0, 255, 0.2);
+    border-width: 2px;
+    border-style: dotted;
+    border-color: #0078d7;
+    background: rgba(0, 120, 215, .5);
     pointer-events: none;
     display: none;
 }

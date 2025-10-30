@@ -244,33 +244,48 @@ divs.forEach(div => {
     });
 });
 
+function getAllParentClasses(elem) {
+    const classSet = new Set();
+    let current = elem;
+
+    while (current) {
+        current.classList.forEach(cls => classSet.add(cls));
+        current = current.parentElement;
+    }
+
+    return Array.from(classSet);
+}
+
 const box = document.getElementById('selectionBox');
 let startX, startY, dragging = false;
 
 document.addEventListener('mousedown', e => {
-  dragging = true;
-  startX = e.pageX;
-  startY = e.pageY;
-  box.style.left = startX + 'px';
-  box.style.top = startY + 'px';
-  box.style.width = '0px';
-  box.style.height = '0px';
-  box.style.display = 'block';
+    const elem = e.target;
+    if (elem.className.includes("jsPanel")) return;
+    if (getAllParentClasses(elem).some(str => str.includes("jsPanel"))) return;
+    dragging = true;
+    startX = e.pageX;
+    startY = e.pageY;
+    box.style.left = startX + 'px';
+    box.style.top = startY + 'px';
+    box.style.width = '0px';
+    box.style.height = '0px';
+    box.style.display = 'block';
 });
 
 document.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  const x = Math.min(e.pageX, startX);
-  const y = Math.min(e.pageY, startY);
-  const w = Math.abs(e.pageX - startX);
-  const h = Math.abs(e.pageY - startY);
-  box.style.left = x + 'px';
-  box.style.top = y + 'px';
-  box.style.width = w + 'px';
-  box.style.height = h + 'px';
+    if (!dragging) return;
+    const x = Math.min(e.pageX, startX);
+    const y = Math.min(e.pageY, startY);
+    const w = Math.abs(e.pageX - startX);
+    const h = Math.abs(e.pageY - startY);
+    box.style.left = x + 'px';
+    box.style.top = y + 'px';
+    box.style.width = w + 'px';
+    box.style.height = h + 'px';
 });
 
 document.addEventListener('mouseup', e => {
-  dragging = false;
-  box.style.display = 'none';
+    dragging = false;
+    box.style.display = 'none';
 });
