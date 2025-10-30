@@ -1,10 +1,20 @@
 body {
-    background: #000 url('./bg.jpg') no-repeat center center;
+    background: #000 url('./assets/bg.jpg') no-repeat center center;
     background-size: cover;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     height: 100vh;
     padding: 10px;
-    color: white;
+    color: lime;
+}
+
+#selectionBox {
+    position: absolute;
+    border: 2px dashed #00f;
+    background: rgba(0, 0, 255, 0.2);
+    pointer-events: none;
+    display: none;
 }
 
 .jsPanel-content {
@@ -19,19 +29,39 @@ body {
 }
 
 .desktop-program {
-    position: absolute;
-    left: 96%;
-    transform: translate(-50%, -50%);
     font-size: small;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    transform: translateX(1250%);
+    width: 140px;
+    height: 83px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desktop-program:hover {
+    outline: 1px dotted lime;
+}
+
+.program-name {
+    position: absolute;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center;
+    transform: translateY(150%);
 }
 
 .program-button {
     all: unset;
     display: inline-block;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    padding: 13px;
 }
 
 .window-theme {
@@ -42,6 +72,32 @@ body {
 .jsPanel-ftr.active {
     margin: 10px;
     padding: 0;
+    background-color: #304322;
+    color: white;
 }
 
 a { color: white; }
+
+.image-container {
+  transform: translateY(-30%);
+}
+
+.bg-img {
+  display: block;
+}
+
+.overlay-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.overlay-img-open {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  pointer-events: none;
+}

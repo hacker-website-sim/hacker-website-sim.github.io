@@ -20,22 +20,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="selectionBox"></div>
+    <noscript>Please enable JavaScript for this awesome hacking website!! </noscript>
     <div id="programs">
         <button class="program-button" onclick="openIpFindingPanel()">
-            <div id="ipfinder" style="top:5%" class="desktop-program">
-                <img src="./folder_close.jpg" alt=""><br>IP Finder
+            <div id="ipfinder" style="top:6%" class="desktop-program">
+                <div class="image-container">
+                    <img src="./assets/folder_close.jpg" class="bg-img">
+                    <img src="./assets/20x20/ipfinder.svg" class="overlay-img">
+                </div>
+                <p class="program-name">IP Finder</p>
             </div>
         </button>
 
         <button class="program-button" onclick="openHiddenFindingPanel()">
-            <div id="hiddenfinder" style="top:14%" class="desktop-program">
-                <img src="./folder_close.jpg" alt=""><br>Hidden<br>Content<br>Finder
-            </div>
-        </button>
-
-        <button class="program-button">
-            <div id="passwordcracker" style="top:24%" class="desktop-program">
-                <img src="./folder_close.jpg" alt=""><br>Password<br>Cracker
+            <div id="hiddenfinder" style="top:15.5%" class="desktop-program">
+                <div class="image-container">
+                    <img src="./assets/folder_close.jpg" class="bg-img">
+                    <img src="./assets/20x20/hiddenfinder.svg" class="overlay-img">
+                </div>
+                <p class="program-name">Hidden Page</p>
+                <p class="program-name" style="transform: translateY(230%);">Finder</p>
             </div>
         </button>
     </div>
